@@ -1,0 +1,71 @@
+use service;
+create table customer (
+	> id_custumer char(5) primary key,
+	> nama varchar(15) not null,
+	> alamat varchar(50) not null,
+	> keluhan varchar(50) not null);
+desc customer;
+insert into customer values
+	> ('001','BADRU','BEKASI','mogok tiba-tiba'),
+	> ('002','RUDI','CIKARANG','tenaga hilang'),
+	> ('003','BIMO','CIKARANG','overheat'),
+	> ('004','RIO','JAKARTA','aki soak');
+select * from customer;
+
+create table kendaraan (
+	> nama varchar(15) not null,
+	> nopol varchar(15) not null,
+	> warna varchar(10) not null,
+	> merk varchar(10) not null);
+desc kendaraan;
+insert into kendaraan values
+	> ('BADRU','B 5441 KOC','hitam','beat'),
+	> ('RUDI','B 4001 FOB','putih','vario'),
+	> ('BIMO','B 5531 FOC','hitam','scopy'),
+	> ('RIO','B 3456 PZA','hitam','supra x');
+select * from kendaraan;
+
+create table kasir (
+	> id_kasir char(5) not null,
+	> nama_kasir varchar(10) not null);
+desc kasir;
+insert into kasir values
+	> ('1011','RANI'),
+	> ('1012','LENA'),
+	> ('1012','LENA'),
+	> ('1011','RANI');
+select * from kasir;
+
+create table mekanik (
+	> id_mekanik char(5) not null,
+	> nama_mekanik varchar(10) not null);
+
+insert into mekanik values
+	> ('1017','BARA'),
+	> ('1020','TONO'),
+	> ('1025','RIKO'),
+	> ('1017','BARA');
+select * from mekanik;
+
+create table sparepart (
+	> id_sparepart char(5) not null,
+	> nama_sparepart varchar(20) not null);
+desc sparepart;
+insert into sparepart values
+	> ('g 450','cdi'),
+	> ('p 11','blok silinder'),
+	> ('c 891','mpx'),
+	> ('gtz 5s','gs superior');
+select * from sparepart;
+
+select 
+> customer.nama,
+> customer.alamat,
+> kendaraan.nopol,
+> kendaraan.merk
+> from customer
+> left join kendaraan on customer.nama=kendaraan.nama
+> order by nama;
+
+select * from customer where alamat ='CIKARANG'; 
+ 
